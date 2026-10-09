@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS — Saweria-inspired visual system
+   Single source of truth mirrors values in tailwind.config.ts
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  /* Brand */
+  --color-primary: #4299e1;
+  --color-primary-hover: #3182ce;
+  --color-primary-soft: #bee3f8;
+  --color-secondary: #f6ad55;
+  --color-secondary-hover: #ed8936;
+  --color-accent: #f687b3;
+  --color-accent-soft: #fed7e2;
+ 
+  /* Neutral */
+  --color-background: #ffffff;
+  --color-surface: #f7fafc;
+  --color-surface-muted: #edf2f7;
+  --color-text: #1a202c;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #718096;
+  --color-border: #cbd5e0;
+  --color-border-subtle: #e2e8f0;
+
+  /* Semantic */
+  --color-success: #38a169;
+  --color-success-bg: #f0fff4;
+  --color-warning: #d69e2e;
+  --color-warning-bg: #fffff0;
+  --color-error: #e53e3e;
+  --color-error-bg: #fff5f5;
+  --color-info: #3182ce;
+  --color-info-bg: #ebf8ff;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-2xl: 18px;
+
+  /* Duration */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-ink antialiased;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: var(--color-primary-soft);
+    color: var(--color-text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+  border: 2px solid var(--color-surface);
+}
